@@ -1,15 +1,6 @@
+import games from '../data/games.js';
 
-const games = require('../data/games');
+export const getAllGames = () => games;
 
-const getAllGames = () => {
-  return games;
-};
-
-const getGameById = (id) => {
-  return games.find(game => game.id === parseInt(id));
-};
-
-module.exports = {
-  getAllGames,
-  getGameById
-};
+export const getGameById = (id) =>
+  games.find((game) => game.id === parseInt(id));

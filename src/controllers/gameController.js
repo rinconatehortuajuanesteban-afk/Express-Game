@@ -1,12 +1,15 @@
+import * as gameService from '../services/gameService.js';
 
-const gameService = require('../services/gameService');
-
-const getGames = (req, res) => {
+export const getGames = (req, res) => {
   const games = gameService.getAllGames();
-  res.json({ success: true, data: games });
+
+  res.json({
+    success: true,
+    data: games
+  });
 };
 
-const getGame = (req, res) => {
+export const getGame = (req, res) => {
   const { id } = req.params;
   const game = gameService.getGameById(id);
 
@@ -17,10 +20,8 @@ const getGame = (req, res) => {
     });
   }
 
-  res.json({ success: true, data: game });
-};
-
-module.exports = {
-  getGames,
-  getGame
+  res.json({
+    success: true,
+    data: game
+  });
 };
